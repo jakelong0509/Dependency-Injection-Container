@@ -9,6 +9,7 @@ namespace ConsoleApp2
         {
             var builder = new ContainerBuilder();
 
+            var dataAccess = Assembly.GetExecutingAssembly();
             
             builder.RegisterType(typeof(TestManager));
             builder.RegisterType<test>().As<ITest>();
@@ -79,7 +80,7 @@ namespace ConsoleApp2
         }
         public void PrintHello()
         {
-            Console.WriteLine("Hello from " + this.GetType().ToString());
+            _test.PrintHello();
         }
     }
 
@@ -93,7 +94,7 @@ namespace ConsoleApp2
 
         public void PrintHello()
         {
-            Console.WriteLine("Hello from " + this.GetType().ToString());
+            _test2.PrintHello();
         }
     }
 
